@@ -10,7 +10,7 @@ namespace Aes_Example
         {
 
 
-            string original = string.Join("", System.IO.File.ReadAllLines(@"C:\Users\Calen.Olsen\source\repos\AESCBC test\AESCBC test\small.txt"));
+            string original = string.Join("", System.IO.File.ReadAllLines(@"C:\git\AESCBC\small.txt"));
 
             // Create a new instance of the Aes
             // class.  This generates a new key and initialization
