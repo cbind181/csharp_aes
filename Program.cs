@@ -20,15 +20,17 @@ namespace Aes_Example
 
                 long bestEncrypt = 999999;
                 long bestDecrypt = 999999;
-
+                
+                // run the cipher 20 times to get a good minimum
                 for(int i = 0; i < 20; i++)
                 {
                     var watch = new System.Diagnostics.Stopwatch();
-
+                    
+                    // time the encryption
                     watch.Start();
                     byte[] encrypted = EncryptStringToBytes_Aes(original, myAes.Key, myAes.IV);
                     watch.Stop();
-
+                    // check if it is the best time
                     if (watch.ElapsedMilliseconds < bestEncrypt)
                     {
                         bestEncrypt = watch.ElapsedMilliseconds;
@@ -38,7 +40,8 @@ namespace Aes_Example
 
 
                     watch = new System.Diagnostics.Stopwatch();
-
+                    
+                    //time the decryption
                     watch.Start();
                     string roundtrip = DecryptStringFromBytes_Aes(encrypted, myAes.Key, myAes.IV);
                     watch.Stop();
@@ -49,9 +52,6 @@ namespace Aes_Example
                     {
                         bestDecrypt = watch.ElapsedMilliseconds;
                     }
-
-                    // Decrypt the bytes to a string.
-
                 }
                 Console.WriteLine("best Encrypt TIme {0}", bestEncrypt);
                 Console.WriteLine("best Decrypt TIme {0}", bestDecrypt);
@@ -138,7 +138,6 @@ namespace Aes_Example
                     }
                 }
             }
-
             return plaintext;
         }
     }
