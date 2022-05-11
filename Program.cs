@@ -9,7 +9,7 @@ namespace Aes_Example
         public static void Main()
         {
 
-
+            // opens and reads target message from a file
             string original = string.Join("", System.IO.File.ReadAllLines(@"C:\git\AESCBC\small.txt"));
 
             // Create a new instance of the Aes
